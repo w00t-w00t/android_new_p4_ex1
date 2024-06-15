@@ -6,9 +6,12 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.openclassrooms.notes.databinding.ActivityMainBinding
 import com.openclassrooms.notes.repository.NotesRepository
+import com.openclassrooms.notes.viewmodel.NotesViewModel
 import com.openclassrooms.notes.widget.NoteItemDecoration
 import com.openclassrooms.notes.widget.NotesAdapter
 import kotlinx.coroutines.launch
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.CreationExtras
 
 /**
  * The main activity for the app.
@@ -19,6 +22,10 @@ class MainActivity : AppCompatActivity() {
      * The binding for the main layout.
      */
     private lateinit var binding: ActivityMainBinding
+
+    private val notesViewModel: NotesViewModel by lazy {
+        ViewModelProvider(this, NotesViewModel.Factory).get(NotesViewModel::class.java)
+    }
 
     private val notesAdapter = NotesAdapter(emptyList())
 
@@ -40,7 +47,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun collectNotes() {
         lifecycleScope.launch {
-            notesRepository.notes.collect {
+            notesViewModel.notes.collect {
                 notesAdapter.updateNotes(it)
             }
         }
