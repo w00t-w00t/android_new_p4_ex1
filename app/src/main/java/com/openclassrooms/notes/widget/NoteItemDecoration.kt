@@ -15,11 +15,12 @@ class NoteItemDecoration(
     private val spanCount: Int
 ) : ItemDecoration() {
 
+    // Called each time an item (child view) is added to the RecyclerView
     override fun getItemOffsets(
-        outRect: Rect,
-        view: View,
-        parent: RecyclerView,
-        state: RecyclerView.State
+        outRect: Rect, // store margin values for
+        view: View, // current item view
+        parent: RecyclerView, // RecyclerView
+        state: RecyclerView.State // state of RecyclerView
     ) {
         with(outRect) {
             if (parent.getChildAdapterPosition(view) < spanCount) {
