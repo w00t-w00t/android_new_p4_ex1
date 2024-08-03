@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val notesViewModel: NotesViewModel by lazy {
-        ViewModelProvider(this, NotesViewModel.Factory).get(NotesViewModel::class.java)
+        ViewModelProvider(this, NotesViewModel.Factory)[NotesViewModel::class.java]
     }
 
     private val notesAdapter = NotesAdapter(emptyList())
