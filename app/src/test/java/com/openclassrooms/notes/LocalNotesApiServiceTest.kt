@@ -2,13 +2,14 @@ package com.openclassrooms.notes
 
 import com.openclassrooms.notes.data.Note
 import com.openclassrooms.notes.service.LocalNotesApiService
+import com.openclassrooms.notes.service.NotesApiService
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
 class LocalNotesApiServiceTest {
 
-    private lateinit var localNotesApiService: LocalNotesApiService
+    private lateinit var localNotesApiService: NotesApiService
 
     @Before
     fun setUp() {
