@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity() {
 
     private val notesAdapter = NotesAdapter(emptyList())
 
-    private val notesRepository = NotesRepository()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
